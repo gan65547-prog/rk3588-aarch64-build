@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .title { font: 700 28px sans-serif; fill:#0f172a }
+      .h { font: 700 20px sans-serif; fill:#0f172a }
+      .t { font: 16px sans-serif; fill:#334155 }
+      .mono { font: 15px monospace; fill:#1e3a8a }
+      .box { stroke:#94a3b8; stroke-width:2; rx:14 }
+    </style>
+  </defs>
+  <rect width="1200" height="700" fill="#f8fafc"/>
+  <text x="600" y="48" text-anchor="middle" class="title">Qt Creator 交叉编译 Kit 配置关系</text>
+
+  <rect x="55" y="95" width="330" height="205" class="box" fill="#dbeafe"/>
+  <text x="75" y="130" class="h">① 编译器 Kit</text>
+  <text x="75" y="165" class="t">C：</text><text x="125" y="165" class="mono">aarch64-linux-gnu-gcc</text>
+  <text x="75" y="195" class="t">C++：</text><text x="145" y="195" class="mono">aarch64-linux-gnu-g++</text>
+  <text x="75" y="235" class="t">目标：Linux / AArch64</text>
+  <text x="75" y="270" class="t">不能选主机 g++</text>
+
+  <rect x="435" y="95" width="330" height="205" class="box" fill="#dcfce7"/>
+  <text x="455" y="130" class="h">② CMake Toolchain</text>
+  <text x="455" y="170" class="mono">cmake/rk3568-aarch64.cmake</text>
+  <text x="455" y="215" class="t">设置 CMAKE_SYSROOT</text>
+  <text x="455" y="245" class="t">设置交叉编译器前缀</text>
+  <text x="455" y="275" class="t">配置间接库搜索路径</text>
+
+  <rect x="815" y="95" width="330" height="205" class="box" fill="#fef3c7"/>
+  <text x="835" y="130" class="h">③ Qt 目标库</text>
+  <text x="835" y="170" class="mono">RK3568_SYSROOT</text>
+  <text x="835" y="195" class="mono">$HOME/rk3568-qt/sysroot</text>
+  <text x="835" y="235" class="t">Qt5Config.cmake</text>
+  <text x="835" y="265" class="t">目标 Qt 头文件和库</text>
+
+  <path d="M386 198 H430" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M766 198 H810" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="180" y="365" width="840" height="205" class="box" fill="#f1f5f9"/>
+  <text x="205" y="405" class="h">④ Qt Creator 构建流程</text>
+  <text x="205" y="445" class="t">选择 Kit → 配置 CMake → 自动 MOC/UIC → 编译 ARM64 ELF</text>
+  <text x="205" y="485" class="mono">file build/hello-rk3568</text>
+  <text x="205" y="520" class="t">期望输出：ELF 64-bit ... ARM aarch64</text>
+  <text x="205" y="555" class="t">部署/显示由目标板 QPA、DRM、显示器和 TTY 决定</text>
+  <path d="M600 305 V358" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <text x="600" y="640" text-anchor="middle" class="t">x86_64 主机还需 x86_64 Qt Host moc；ARM64 主机可使用 Sysroot 中可执行的 Qt 工具</text>
+</svg>

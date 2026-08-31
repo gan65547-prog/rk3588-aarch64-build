@@ -2,6 +2,8 @@
 
 Qt Creator 只负责项目编辑、CMake 配置和编译；Sysroot 同步、板端依赖安装仍建议先由根目录的 `setup-rk3568-qt.sh` 完成。
 
+![Qt Creator Kit 配置关系图](assets/qtcreator-kit-setup.svg)
+
 ## 一、准备工作
 
 先在终端完成一次环境准备（以 RK3568 为例；RK3588 测试时把型号改为 `rk3588`）：
