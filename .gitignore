@@ -1,0 +1,4 @@
+.DS_Store
+package/**/BOARD-DEB-SHA256SUMS.txt
+package/toolchains/*.tar.xz
+package/**/*.deb
