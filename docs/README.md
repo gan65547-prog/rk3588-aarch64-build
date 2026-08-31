@@ -33,4 +33,6 @@
 
 完整命令示例见 `INSTALL.md`。
 
+Qt Creator 图形化配置见 `QtCreator-交叉编译配置.md`。
+
 验证范围和未验证的 RK3568 硬件项目见 `VALIDATION-REPORT.md`。
